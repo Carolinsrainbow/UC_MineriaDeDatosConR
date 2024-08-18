@@ -1,12 +1,12 @@
 # -------------------------------------------------------------------------
 # Fecha		    : Septiembre 2022
-# Autor		    : Cristian V·squez
-# Curso       : MinerÌa de datos con R 
+# Autor		    : Cristian V√°squez
+# Curso       : Miner√≠a de datos con R 
 # Archivo 		: Principales objetos y funciones de R
 # ------------------------------------------------------------------------- 
 
 # ----------------------------------------------------------------------------
-# Objetos b·sicos de R
+# Objetos b√°sicos de R
 # ----------------------------------------------------------------------------
 
 # vectores
@@ -14,7 +14,7 @@
 numeric.vector    <- c(-2, -1, 0, 1.2, -5) 
 numeric.vector
 
-character.vector  <- c("curso", "minerÌa", "de", "datos", "con", "R") 
+character.vector  <- c("curso", "miner√≠a", "de", "datos", "con", "R") 
 character.vector
 
 logical.vector    <- c(FALSE, TRUE, TRUE, TRUE, FALSE)
