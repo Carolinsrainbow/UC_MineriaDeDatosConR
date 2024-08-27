@@ -1,12 +1,12 @@
 # -------------------------------------------------------------------------
 # Fecha		    : Septiembre 2022
-# Autor		    : Cristian Vásquez
-# Curso       : Minería de datos con R 
-# Archivo 		: Gestión de datos utilizando la librería dplyr
+# Autor		    : Cristian VÃ¡squez
+# Curso       : MinerÃ­a de datos con R 
+# Archivo 		: GestiÃ³n de datos utilizando la librerÃ­a dplyr
 # ------------------------------------------------------------------------- 
 
 # -------------------------------------------------------
-# instalación de librerías en R
+# instalaciÃ³n de librerÃ­as en R
 # -------------------------------------------------------
 
 # install.packages("readxl")
@@ -16,7 +16,7 @@
 # devtools::install_github("tidyverse/dplyr")
 
 # -------------------------------------------------------
-# librerías
+# librerÃ­as
 # -------------------------------------------------------
 
 library(readxl)
@@ -25,11 +25,11 @@ library(lubridate)
 
 
 # -------------------------------------------------------
-# Configuración directorio de trabajo
+# ConfiguraciÃ³n directorio de trabajo
 # -------------------------------------------------------
 
-#setwd("C:/Users/ctvas/Documentos Cristian Vásquez/05. Magíster en BA/05. Script Clases/05. Material Complementario Videos/01. Datos")
-setwd("aquí debe indicar la carpeta donde se encuentran los datos")
+#setwd("C:/Users/ctvas/Documentos Cristian VÃ¡squez/05. MagÃ­ster en BA/05. Script Clases/05. Material Complementario Videos/01. Datos")
+setwd("aquÃ­ debe indicar la carpeta donde se encuentran los datos")
 getwd()
 
 #--------------------------------------------------------
@@ -40,7 +40,7 @@ disneyplus_titles <- read_excel("disneyplus_titles.xlsx")
 disneyplus_titles
 
 #--------------------------------------------------------
-# Gestión de datos con dplyr
+# GestiÃ³n de datos con dplyr
 #--------------------------------------------------------
 
 select(disneyplus_titles,1,2,3)
