@@ -1,23 +1,23 @@
 #--------------------------------------------------------------------------
 # Fecha		    : Septiembre 2022
-# Autor		    : Cristian V·squez
-# Curso       : MinerÌa de datos con R 
-# Archivo 		: ExtracciÛn de informaciÛn de diferentes fuentes de abastecimiento en R
-# DescripciÛn	: El tutorial est· orientado gestiÛn y par·metros relevantes 
+# Autor		    : Cristian V√°squez
+# Curso       : Miner√≠a de datos con R 
+# Archivo 		: Extracci√≥n de informaci√≥n de diferentes fuentes de abastecimiento en R
+# Descripci√≥n	: El tutorial est√° orientado gesti√≥n y par√°metros relevantes 
 #               en la lectura de datos de datos y las funciones para almacenar los objetos en R
 #-------------------------------------------------------------------------- 
 
 
 # ----------------------------------------------------------------------------
-# ConfiguraciÛn lugar de trabajo
+# Configuraci√≥n lugar de trabajo
 # ----------------------------------------------------------------------------
 
 
-ruta = "C:/Users/ctvas/Documentos Cristian V·squez/05. MagÌster en BA/09. Tutoriales/02. Material Complementario/01. Datos"
+ruta = "C:/Users/ctvas/Documentos Cristian V√°squez/05. Mag√≠ster en BA/09. Tutoriales/02. Material Complementario/01. Datos"
 setwd(ruta)
 
 # ----------------------------------------------------------------------------
-# LibrerÌas
+# Librer√≠as
 # ----------------------------------------------------------------------------
 
 # install.packages("readr")
@@ -25,7 +25,7 @@ setwd(ruta)
 # install.packages("dplyr")
 
 # ----------------------------------------------------------------------------
-# Cargar librerÌas
+# Cargar librer√≠as
 # ----------------------------------------------------------------------------
 
 library(readr)
@@ -34,7 +34,7 @@ library(dplyr)
 
 
 # ----------------------------------------------------------------------------
-# GestiÛn de lectura de datos
+# Gesti√≥n de lectura de datos
 # ----------------------------------------------------------------------------
 
 mall.customers01 = read_delim("01.Mall_Customers.csv", delim = ";")
@@ -73,7 +73,7 @@ rm(mall.customers01,
    mall.customers03)
 
 # ----------------------------------------------------------------------------
-# Almacenamiento de informaciÛn
+# Almacenamiento de informaci√≥n
 # ----------------------------------------------------------------------------
 
 save(mall.customers04, file = "datos.RData")
