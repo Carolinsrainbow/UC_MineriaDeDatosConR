@@ -1,23 +1,23 @@
 # -------------------------------------------------------------------------
 # Fecha		    : Octubre 2022
-# Autor		    : Cristian V·squez
-# Curso       : MinerÌa de datos con R 
-# Archivo 		: EstadÌsticas descriptivas para describir datos
-# DescripciÛn	: AquÌ se realizar un an·lisis descriptivo sobre un set de datos
-#               relacionado a la actividad de un retial. Se utilizan las librerÌas
-#               de ciencia de datos para realizar la lectura y la librerÌa "skimr" para
-#               calcular los estadÌsticos de resumen
+# Autor		    : Cristian V√°squez
+# Curso       : Miner√≠a de datos con R 
+# Archivo 		: Estad√≠sticas descriptivas para describir datos
+# Descripci√≥n	: Aqu√≠ se realizar un an√°lisis descriptivo sobre un set de datos
+#               relacionado a la actividad de un retial. Se utilizan las librer√≠as
+#               de ciencia de datos para realizar la lectura y la librer√≠a "skimr" para
+#               calcular los estad√≠sticos de resumen
 # ------------------------------------------------------------------------- 
 
 # ----------------------------------------------------------------------------
-# ConfiguraciÛn lugar de trabajo
+# Configuraci√≥n lugar de trabajo
 # ----------------------------------------------------------------------------
 
-ruta = "C:/Users/ctvas/Documentos Cristian V·squez/05. MagÌster en BA/09. Tutoriales/02. Material Complementario/01. Datos"
+ruta = "C:/Users/ctvas/Documentos Cristian V√°squez/05. Mag√≠ster en BA/09. Tutoriales/02. Material Complementario/01. Datos"
 setwd(ruta)
 
 # ----------------------------------------------------------------------------
-# LibrerÌas
+# Librer√≠as
 # ----------------------------------------------------------------------------
 
 # install.packages("readr")
@@ -25,7 +25,7 @@ setwd(ruta)
 # install.packages("moments")
 
 # ----------------------------------------------------------------------------
-# Cargar librerÌas
+# Cargar librer√≠as
 # ----------------------------------------------------------------------------
 
 library(readr)
@@ -50,7 +50,7 @@ ecommerce = rename(ecommerce,
                    YearlyAmountSpent  = 'Yearly Amount Spent')
 
 # ----------------------------------------------------------------------------
-# EstadÌsticas descritivas utilizando la librerÌa"skimr"
+# Estad√≠sticas descritivas utilizando la librer√≠a"skimr"
 # ----------------------------------------------------------------------------
 
 skimr::skim(select(ecommerce,-c(Email,Address,Avatar)))
@@ -62,7 +62,7 @@ aux1 = select(ecommerce ,-c(Email,Address,Avatar))
 apply(aux1,2,IQR)
 apply(aux1,2,function(x) diff(range(x)))
 
-### EstadÌsticas de forma
+### Estad√≠sticas de forma
 
 tibble(Variables = names(aux1),
           Asimetria = as.numeric(skewness(aux1)),
