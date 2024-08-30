@@ -1,12 +1,12 @@
 # -------------------------------------------------------------------------
 # Fecha		    : Septiembre 2022
-# Autor		    : Cristian Vásquez
-# Curso       : Minería de datos con R 
-# Archivo 		: Resumen de información en R
+# Autor		    : Cristian VÃ¡squez
+# Curso       : MinerÃ­a de datos con R 
+# Archivo 		: Resumen de informaciÃ³n en R
 # ------------------------------------------------------------------------- 
 
 # -------------------------------------------------------
-# instalación de librerías en R
+# instalaciÃ³n de librerÃ­as en R
 # -------------------------------------------------------
 
 # install.packages("readr")
@@ -14,7 +14,7 @@
 # install.packages("moments")
 
 # -------------------------------------------------------
-# librerías
+# librerÃ­as
 # -------------------------------------------------------
 
 library(readr)
@@ -22,11 +22,11 @@ library(dplyr)
 library(moments)
 
 # -------------------------------------------------------
-# Configuración directorio de trabajo
+# ConfiguraciÃ³n directorio de trabajo
 # -------------------------------------------------------
 
-#setwd("C:/Users/ctvas/Documentos Cristian Vásquez/05. Magíster en BA/05. Script Clases/05. Material Complementario Videos/01. Datos")
-setwd("aquí debe indicar la carpeta donde se encuentran los datos")
+#setwd("C:/Users/ctvas/Documentos Cristian VÃ¡squez/05. MagÃ­ster en BA/05. Script Clases/05. Material Complementario Videos/01. Datos")
+setwd("aquÃ­ debe indicar la carpeta donde se encuentran los datos")
 getwd()
 
 # -------------------------------------------------------
@@ -39,7 +39,7 @@ MallCustomers
 attach(MallCustomers)       # almacena las variables en memoria
 
 # -------------------------------------------------------
-# Medidas de localización
+# Medidas de localizaciÃ³n
 # -------------------------------------------------------
 
 mean(Age)
@@ -47,7 +47,7 @@ median(Age)
 quantile(Age)
 
 # -------------------------------------------------------
-# Medidas de dispersión
+# Medidas de dispersiÃ³n
 # -------------------------------------------------------
 
 var(Age)
