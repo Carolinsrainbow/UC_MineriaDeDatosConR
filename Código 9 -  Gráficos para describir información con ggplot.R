@@ -1,21 +1,21 @@
 # -------------------------------------------------------------------------
 # Fecha		    : Octubre 2022
-# Autor		    : Cristian Vásquez
-# Curso       : Minería de datos con R 
-# Archivo 		: Gráficos para describir información con ggplot2
-# Descripción	: Se analiza un set de datos sobre la demanda de bicicletas p´ublicas del sistema Capital
+# Autor		    : Cristian VÃ¡squez
+# Curso       : MinerÃ­a de datos con R 
+# Archivo 		: GrÃ¡ficos para describir informaciÃ³n con ggplot2
+# DescripciÃ³n	: Se analiza un set de datos sobre la demanda de bicicletas pÂ´ublicas del sistema Capital
 #               Bikeshare de Washington DC.
 # ------------------------------------------------------------------------- 
 
 # ----------------------------------------------------------------------------
-# Configuración lugar de trabajo
+# ConfiguraciÃ³n lugar de trabajo
 # ----------------------------------------------------------------------------
 
-ruta = "C:/Users/ctvas/Documentos Cristian Vásquez/05. Magíster en BA/09. Tutoriales/02. Material Complementario/01. Datos"
+ruta = "C:/Users/ctvas/Documentos Cristian VÃ¡squez/05. MagÃ­ster en BA/09. Tutoriales/02. Material Complementario/01. Datos"
 setwd(ruta)
 
 # ----------------------------------------------------------------------------
-# Librerías
+# LibrerÃ­as
 # ----------------------------------------------------------------------------
 
 # install.packages("readr")
@@ -27,7 +27,7 @@ setwd(ruta)
 # install.packages("scales")
 
 # ----------------------------------------------------------------------------
-# Cargar librerías
+# Cargar librerÃ­as
 # ----------------------------------------------------------------------------
 
 library(readr)
@@ -45,7 +45,7 @@ library(scales)
 datos = read_csv("dataset_bike.csv")
 
 # ----------------------------------------------------------------------------
-# Creación de variables factores
+# CreaciÃ³n de variables factores
 # ----------------------------------------------------------------------------
 
 datos$season     <- factor(datos$season, labels = c("Spring", "Summer", "Fall", "Winter"))
@@ -58,11 +58,11 @@ datos$weekday    <- wday(ymd_hms(datos$datetime), label=TRUE, abbr = FALSE)
 datos$month      <- factor(month(datos$datetime, label = TRUE, abbr = FALSE))
 
 # ----------------------------------------------------------------------------
-# Extraer información a través de los datos
+# Extraer informaciÃ³n a travÃ©s de los datos
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
-# Gráficos univariados
+# GrÃ¡ficos univariados
 # ----------------------------------------------------------------------------
 
 plot1.1 = ggplot(data = datos, aes(x = hour ))			  +
@@ -120,7 +120,7 @@ plot1 <- ggarrange(plot1.1,plot1.2,plot1.3,
                            plot1.4,plot1.5,plot1.6,
                    ncol=3,nrow=2,common.legend = TRUE)
 
-annotate_figure(plot1, top = text_grob("Gráficos de Barra"))
+annotate_figure(plot1, top = text_grob("GrÃ¡ficos de Barra"))
 
 rm(plot1.1,plot1.2,plot1.3,
    plot1.4,plot1.5,plot1.6)
@@ -186,7 +186,7 @@ plot2 <- ggarrange(plot1.7,plot1.8,plot1.9,
                    plot1.10,plot1.11,plot1.12,
                    ncol=3,nrow=2,common.legend = TRUE)
 
-annotate_figure(plot2, top = text_grob("Gráficos de Distribución"))
+annotate_figure(plot2, top = text_grob("GrÃ¡ficos de DistribuciÃ³n"))
 
 rm(plot1.7,plot1.8,plot1.9,
    plot1.10,plot1.11,plot1.12)
@@ -194,7 +194,7 @@ rm(plot1.7,plot1.8,plot1.9,
 rm(plot1,plot2)
 
 # ----------------------------------------------------------------------------
-# Gráfico Bivariado 
+# GrÃ¡fico Bivariado 
 # ----------------------------------------------------------------------------
 
 plot2.1 <- ggplot(datos, aes(x = season, y = count, fill = season)) +
@@ -250,7 +250,7 @@ plot3 <- ggarrange(plot2.1,plot2.2,plot2.3,
                    plot2.4,plot2.5,plot2.6,
                    ncol=3,nrow=2,common.legend = FALSE)
 
-annotate_figure(plot3, top = text_grob("Gráficos Boxplot de 2 dimensiones"))
+annotate_figure(plot3, top = text_grob("GrÃ¡ficos Boxplot de 2 dimensiones"))
 
 rm(plot2.1,plot2.2,plot2.3,
    plot2.4,plot2.5,plot2.6)
@@ -296,7 +296,7 @@ plot4 <- ggarrange(plot2.7,plot2.8,
                    plot2.9,plot2.10,
                    ncol=2,nrow=2,common.legend = FALSE)
 
-annotate_figure(plot4, top = text_grob("Gráficos Scatter Plot de 2 dimensiones"))
+annotate_figure(plot4, top = text_grob("GrÃ¡ficos Scatter Plot de 2 dimensiones"))
 
 rm(plot2.7,plot2.8,
    plot2.9,plot2.10)
