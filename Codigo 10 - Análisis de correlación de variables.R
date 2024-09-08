@@ -1,12 +1,12 @@
 # -------------------------------------------------------------------------
 # Fecha		    : Septiembre 2022
-# Autor		    : Cristian V·squez
-# Curso       : MinerÌa de datos con R 
-# Archivo 		: An·lisis de correlaciÛn de variables
+# Autor		    : Cristian V√°squez
+# Curso       : Miner√≠a de datos con R 
+# Archivo 		: An√°lisis de correlaci√≥n de variables
 # ------------------------------------------------------------------------- 
 
 # -------------------------------------------------------
-# instalaciÛn de librerÌas en R
+# instalaci√≥n de librer√≠as en R
 # -------------------------------------------------------
 
 # install.packages("readxl")
@@ -15,7 +15,7 @@
 # install.packages("corrplot")
 
 # -------------------------------------------------------
-# librerÌas
+# librer√≠as
 # -------------------------------------------------------
 
 library(readxl)
@@ -24,15 +24,15 @@ library(ggplot2)
 library(corrplot)
 
 # -------------------------------------------------------
-# ConfiguraciÛn directorio de trabajo
+# Configuraci√≥n directorio de trabajo
 # -------------------------------------------------------
 
-#setwd("C:/Users/ctvas/Documentos Cristian V·squez/05. MagÌster en BA/05. Script Clases/05. Material Complementario Videos/01. Datos")
-setwd("aquÌ debe indicar la carpeta donde se encuentran los datos")
+#setwd("C:/Users/ctvas/Documentos Cristian V√°squez/05. Mag√≠ster en BA/05. Script Clases/05. Material Complementario Videos/01. Datos")
+setwd("aqu√≠ debe indicar la carpeta donde se encuentran los datos")
 getwd()
 
 # -------------------------------------------------------
-# Importa datos extensiÛn .txt con librerÌa base
+# Importa datos extensi√≥n .txt con librer√≠a base
 # -------------------------------------------------------
 
 creditos <- read.delim("creditos_uni.txt")
@@ -40,15 +40,15 @@ cuanti   <- creditos[c(2,4,6,7,8,9)]
 
 
 # -------------------------------------------------------
-# An·lisis set de datos bancarios "creditos_uni.txt"
+# An√°lisis set de datos bancarios "creditos_uni.txt"
 # -------------------------------------------------------
 
-# Gr·fico de dispersiÛn
+# Gr√°fico de dispersi√≥n
 
 ggplot(cuanti, aes(plazo,monto)) +
     geom_point(color="red", alpha = 0.3)
 
-# Matriz de correlaciÛn
+# Matriz de correlaci√≥n
 
 round(cor(cuanti, method = "pearson"),3)
 
