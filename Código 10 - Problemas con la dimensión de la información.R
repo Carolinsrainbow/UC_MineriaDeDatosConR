@@ -1,21 +1,21 @@
 # -------------------------------------------------------------------------
 # Fecha		    : Octubre 2022
-# Autor		    : Cristian V醩quez
-# Curso       : Miner韆 de datos con R 
-# Archivo 		: Problemas con la dimensi髇 de la informaci髇
-# Descripci髇	: Analizar un conjunto de datos relacionados a mediciones de 
-#               veh韈ulos y estudiar el coeficiente R cuadrado.
+# Autor		    : Cristian V谩squez
+# Curso       : Miner铆a de datos con R 
+# Archivo 		: Problemas con la dimensi贸n de la informaci贸n
+# Descripci贸n	: Analizar un conjunto de datos relacionados a mediciones de 
+#               veh铆culos y estudiar el coeficiente R cuadrado.
 # ------------------------------------------------------------------------- 
 
 # ----------------------------------------------------------------------------
-# Configuraci髇 lugar de trabajo
+# Configuraci贸n lugar de trabajo
 # ----------------------------------------------------------------------------
 
-ruta = "C:/Users/ctvas/Documentos Cristian V醩quez/05. Mag韘ter en BA/09. Tutoriales/02. Material Complementario/01. Datos"
+ruta = "C:/Users/ctvas/Documentos Cristian V谩squez/05. Mag铆ster en BA/09. Tutoriales/02. Material Complementario/01. Datos"
 setwd(ruta)
 
 # ----------------------------------------------------------------------------
-# Librer韆s
+# Librer铆as
 # ----------------------------------------------------------------------------
 
 # install.packages("readr")
@@ -23,7 +23,7 @@ setwd(ruta)
 # install.packages("ggplot2")
 
 # ----------------------------------------------------------------------------
-# Cargar librer韆s
+# Cargar librer铆as
 # ----------------------------------------------------------------------------
 
 library(readr)
@@ -48,13 +48,13 @@ datos <- datos                          %>%
             mutate(horsepower = as.numeric(horsepower))
 
 # ----------------------------------------------------------------------------
-# Gr醘ico
+# Gr谩fico
 # ----------------------------------------------------------------------------
 
 plot1.1 <- ggplot(datos, aes(x = horsepower,y = mpg))           +
             geom_point(color = " slategray4 ",alpha =0.7)       +
             geom_smooth(method = "loess",col=" red")            +
-            labs(y = "Millas por gal髇",
+            labs(y = "Millas por gal贸n",
                  x = "Horse power",
                  title = "Scatter Plot entre MPG y Horse power")           +
             theme_bw ()
@@ -62,7 +62,7 @@ plot1.1 <- ggplot(datos, aes(x = horsepower,y = mpg))           +
 plot1.1
 
 # ----------------------------------------------------------------------------
-# Correlaci髇
+# Correlaci贸n
 # ----------------------------------------------------------------------------
 
 var.ind = c("cylinders","displacement","horsepower","weight","acceleration","year")
@@ -82,13 +82,13 @@ summary(modelo1)
 
 forecast <- newdatos %>% mutate(prediccion = predict(modelo1))
 
-### Predicci髇 modelo base
+### Predicci贸n modelo base
 
 plot1.2<- ggplot(forecast, aes(x = horsepower,y = mpg))           +
   geom_point(color = " slategray4 ",alpha =0.7)       +
   geom_line(aes(x = horsepower, y = prediccion), 
              color =" red")            +
-  labs(y = "Millas por gal髇",
+  labs(y = "Millas por gal贸n",
        x = "Horse power",
        title = "Scatter Plot entre MPG y Horse power")           +
   theme_bw ()
