@@ -1,30 +1,30 @@
 # -------------------------------------------------------------------------
 # Fecha		    : Septiembre 2022
-# Autor		    : Cristian Vásquez
-# Curso       : Minería de datos con R 
+# Autor		    : Cristian VÃ¡squez
+# Curso       : MinerÃ­a de datos con R 
 # Archivo 		: Medidas de similaridad 
 # ------------------------------------------------------------------------- 
 
 # -------------------------------------------------------
-# instalación de librerías en R
+# instalaciÃ³n de librerÃ­as en R
 # -------------------------------------------------------
 
 # install.packages("readxl")
 # install.packages("factoextra")
 
 # -------------------------------------------------------
-# librerías
+# librerÃ­as
 # -------------------------------------------------------
 
 library(readxl)
 library(factoextra)
 
 # -------------------------------------------------------
-# Configuración directorio de trabajo
+# ConfiguraciÃ³n directorio de trabajo
 # -------------------------------------------------------
 
-#setwd("C:/Users/ctvas/Documentos Cristian Vásquez/05. Magíster en BA/05. Script Clases/05. Material Complementario Videos/01. Datos")
-setwd("aquí debe indicar la carpeta donde se encuentran los datos")
+#setwd("C:/Users/ctvas/Documentos Cristian VÃ¡squez/05. MagÃ­ster en BA/05. Script Clases/05. Material Complementario Videos/01. Datos")
+setwd("aquÃ­ debe indicar la carpeta donde se encuentran los datos")
 getwd()
 
 # -------------------------------------------------------
@@ -35,7 +35,7 @@ rating <- read_xls("muestra_rating.xls")
 rating
 
 # ----------------------------------------------------------------------------
-# Cálculo de distancias
+# CÃ¡lculo de distancias
 # ----------------------------------------------------------------------------
 
 datos.centrados <- scale(rating[,4:9], center = T, scale = T) # estandarizar los datos
@@ -56,10 +56,10 @@ round(as.matrix(mat_dist2)[1:5, 1:5], 2)
 fviz_dist(dist.obj = mat_dist2, lab_size = 5) +
     ggtitle("Matriz de Distancia de Manhattan")
 
-# Distancia correlación Pearson
+# Distancia correlaciÃ³n Pearson
 
 mat_dist3 <- get_dist(datos.centrados[1:50,], method = "pearson")
 round(as.matrix(mat_dist3)[1:5, 1:5], 2)
 
 fviz_dist(dist.obj = mat_dist3, lab_size = 5) +
-    ggtitle("Matriz de Distancia de Correlación Pearson")
+    ggtitle("Matriz de Distancia de CorrelaciÃ³n Pearson")
