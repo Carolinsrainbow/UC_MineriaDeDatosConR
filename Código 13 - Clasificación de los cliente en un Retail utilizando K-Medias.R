@@ -1,12 +1,12 @@
 # -------------------------------------------------------------------------
 # Fecha		    : Septiembre 2022
-# Autor		    : Cristian V·squez
-# Curso       : MinerÌa de datos con R 
-# Archivo 		: ClasificaciÛn de los cliente en un Retail utilizando K-Medias 
+# Autor		    : Cristian V√°squez
+# Curso       : Miner√≠a de datos con R 
+# Archivo 		: Clasificaci√≥n de los cliente en un Retail utilizando K-Medias 
 # ------------------------------------------------------------------------- 
 
 # -------------------------------------------------------
-# instalaciÛn de librerÌas en R
+# instalaci√≥n de librer√≠as en R
 # -------------------------------------------------------
 
 # install.packages("ISLR")
@@ -19,7 +19,7 @@
 # install.packages("factoextra")
 
 # -------------------------------------------------------
-# librerÌas
+# librer√≠as
 # -------------------------------------------------------
 
 library(ISLR)
@@ -31,11 +31,11 @@ library(plotly)
 library(factoextra)
 
 # -------------------------------------------------------
-# ConfiguraciÛn directorio de trabajo
+# Configuraci√≥n directorio de trabajo
 # -------------------------------------------------------
 
-#setwd("C:/Users/ctvas/Documentos Cristian V·squez/05. MagÌster en BA/05. Script Clases/05. Material Complementario Videos/01. Datos")
-setwd("aquÌ debe indicar la carpeta donde se encuentran los datos")
+#setwd("C:/Users/ctvas/Documentos Cristian V√°squez/05. Mag√≠ster en BA/05. Script Clases/05. Material Complementario Videos/01. Datos")
+setwd("aqu√≠ debe indicar la carpeta donde se encuentran los datos")
 getwd()
 
 # -------------------------------------------------------
@@ -47,7 +47,7 @@ datos
 str(datos)
 
 # -------------------------------------------------------
-# ConstrucciÛn dimensiones RFM
+# Construcci√≥n dimensiones RFM
 # -------------------------------------------------------
 
 datos.segmentar <- datos										                      %>%
@@ -73,7 +73,7 @@ datos.finales		<- datos.segmentar %>%
 datos.finales
 
 # -------------------------------------------------------
-# EstadÌsticas dimensiones RFM
+# Estad√≠sticas dimensiones RFM
 # -------------------------------------------------------
 
 skimr::skim(select(datos.finales,-CustomerID))
@@ -110,7 +110,7 @@ skimr::skim(select(datos.finales,-CustomerID))
 
 
 # -------------------------------------------------------
-# Nuevo gr·fico 
+# Nuevo gr√°fico 
 # -------------------------------------------------------
 
 fig1 <- plot_ly(datos.finales, y = ~ Monto, type = "box", name = "Monto", boxpoints = "all")
@@ -130,7 +130,7 @@ datosf.centrados  <- scale(select(datos.finales,-CustomerID), center = TRUE,
 round(head(datosf.centrados,10),3)
 
 # -------------------------------------------------------
-#  PreparaciÛn de los datos
+#  Preparaci√≥n de los datos
 # -------------------------------------------------------
 
 datosf.centrados           <- data.frame(datosf.centrados)
@@ -153,7 +153,7 @@ mat_dist <- dist(x = datosf.centrados[1:30,], method = "manhattan")
 round(as.matrix(mat_dist)[1:5, 1:5], 2)
 
 # -------------------------------------------------------
-#  Distancia CorrelaciÛn
+#  Distancia Correlaci√≥n
 # -------------------------------------------------------
 
 mat_dist <- get_dist(x = datosf.centrados[1:30,], method = "pearson")
@@ -178,22 +178,22 @@ plot2 <- fviz_dist(dist.obj = mat_dist2, lab_size = 5) +
 ggplotly(plot2)
 
 plot3 <- fviz_dist(dist.obj = mat_dist3, lab_size = 5) +
-  ggtitle("Matriz de Distancia de CorrelaciÛn")
+  ggtitle("Matriz de Distancia de Correlaci√≥n")
 ggplotly(plot3)
 
 
 # -------------------------------------------------------
-#  N˙mero Ûptimo de grupos
+#  N√∫mero √≥ptimo de grupos
 # -------------------------------------------------------
 
 fviz_nbclust(x = datosf.centrados, FUNcluster = kmeans, method = "wss", k.max = 25, 
              diss = get_dist(datosf.centrados, method = "euclidean"), nstart = 50) +
-  labs(title = "MÈtodo Elbow - N˙mero Ûptimo de conglomerados") +
+  labs(title = "M√©todo Elbow - N√∫mero √≥ptimo de conglomerados") +
   theme_grey()
 
 
 # -------------------------------------------------------
-#  AplicaciÛn del algoritmo de k-medias
+#  Aplicaci√≥n del algoritmo de k-medias
 # -------------------------------------------------------
 
 set.seed(12345)
@@ -204,7 +204,7 @@ resultado   <- cbind(datosf.centrados, cluster = km_clusters$cluster)
 head(resultado,10)
 
 # -------------------------------------------------------
-#  Gr·ficos de los segmentos
+#  Gr√°ficos de los segmentos
 # -------------------------------------------------------
 
 pcaMyData <- princomp(datosf.centrados)
@@ -224,7 +224,7 @@ p <- layout(p, title = "PCA Clusters from K-Means Clustering",
 p
 
 # -------------------------------------------------------
-#  Otro gr·fico m·s sencillo
+#  Otro gr√°fico m√°s sencillo
 # -------------------------------------------------------
 
 datos.clasificados <- cbind(datos.finales,cluster = km_clusters$cluster)
@@ -247,7 +247,7 @@ p <- layout(p, title = "Dimensiones RFM K-Means Clustering",
 p
 
 #--------------------------------------------------------------
-# DescripciÛn de los grupos
+# Descripci√≥n de los grupos
 #--------------------------------------------------------------
 
 aggregate(cbind(Monto,Frecuencia,Recencia)~ cluster, 
