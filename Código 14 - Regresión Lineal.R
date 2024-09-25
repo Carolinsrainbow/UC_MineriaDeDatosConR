@@ -1,12 +1,12 @@
 # -------------------------------------------------------------------------
 # Fecha		    : Septiembre 2022
-# Autor		    : Cristian Vásquez
-# Curso       : Minería de datos con R 
-# Archivo 		: Regresón lineal 
+# Autor		    : Cristian VÃ¡squez
+# Curso       : MinerÃ­a de datos con R 
+# Archivo 		: RegresÃ³n lineal 
 # ------------------------------------------------------------------------- 
 
 # -------------------------------------------------------
-# instalación de librerías en R
+# instalaciÃ³n de librerÃ­as en R
 # -------------------------------------------------------
 
 # install.packages("readxl")
@@ -17,7 +17,7 @@
 # install.packages("gtsummary")
 
 # -------------------------------------------------------
-# librerías
+# librerÃ­as
 # -------------------------------------------------------
 
 library(readxl)
@@ -28,11 +28,11 @@ library(ggpubr)
 library(gtsummary)
 
 # -------------------------------------------------------
-# Configuración directorio de trabajo
+# ConfiguraciÃ³n directorio de trabajo
 # -------------------------------------------------------
 
-#setwd("C:/Users/ctvas/Documentos Cristian Vásquez/05. Magíster en BA/05. Script Clases/05. Material Complementario Videos/01. Datos")
-setwd("aquí debe indicar la carpeta donde se encuentran los datos")
+#setwd("C:/Users/ctvas/Documentos Cristian VÃ¡squez/05. MagÃ­ster en BA/05. Script Clases/05. Material Complementario Videos/01. Datos")
+setwd("aquÃ­ debe indicar la carpeta donde se encuentran los datos")
 getwd()
 
 # -------------------------------------------------------
@@ -44,7 +44,7 @@ epf = as_tibble(epf)
 print(epf)
 
 # -------------------------------------------------------
-# Transformación de variables categóricas
+# TransformaciÃ³n de variables categÃ³ricas
 # -------------------------------------------------------
 
 epf$sexo    <- as.factor(epf$sexo)
@@ -53,7 +53,7 @@ epf$tvp     <- as.factor(epf$tvp)
 epf$ecivil  <- as.factor(epf$ecivil)
 
 # -------------------------------------------------------
-# Estadísticas descriptivas
+# EstadÃ­sticas descriptivas
 # -------------------------------------------------------
 
 skimr::skim(select(epf,ingreso,gastos,npersona,edad))
@@ -61,7 +61,7 @@ tbl_summary(select(epf,sexo,zona,tvp,ecivil))
 
 
 # -------------------------------------------------------
-# Gráficos de cada dimensión cuantitativa
+# GrÃ¡ficos de cada dimensiÃ³n cuantitativa
 # -------------------------------------------------------
 
 plot1 <- ggplot(epf, aes(gastos))                           +
@@ -106,12 +106,12 @@ annotate_figure(grafico1, top = "Variables Cuantitativas")
 rm(plot1,plot2,plot3, plot4,grafico1)
 
 # -------------------------------------------------------
-# Gráficos de cada dimensión cualitativa
+# GrÃ¡ficos de cada dimensiÃ³n cualitativa
 # -------------------------------------------------------
 
 # Agregar etiquetas
 
-labels_tvp <- c("No responde","Propia pagada","Propia pagándose",
+labels_tvp <- c("No responde","Propia pagada","Propia pagÃ¡ndose",
                 "Arrendada cont", "Arrendada sin con",
                 "Cedida trabajo", "Cedida familiar",
                 "En litigio", "Herencia")
@@ -165,7 +165,7 @@ rm(labels_tvp,labels_ecivil)
 rm(plot5,plot6,plot7, plot8,grafico2)
 
 # -------------------------------------------------------
-# Análisis Bivariado "Correlación"
+# AnÃ¡lisis Bivariado "CorrelaciÃ³n"
 # -------------------------------------------------------
 
 Variables   = c()
@@ -198,7 +198,7 @@ rm(Variables, Correlacion)
 
 
 # -------------------------------------------------------
-# Análisis Bivariado "Gráficos"
+# AnÃ¡lisis Bivariado "GrÃ¡ficos"
 # -------------------------------------------------------
 
 plot1 <- ggplot(epf, aes(ingreso,gastos))                               + 
@@ -296,13 +296,13 @@ aggregate(gastos ~ zona, mean,data = epf)
 aggregate(gastos ~ ecivil, mean,data = epf)
 
 # -------------------------------------------------------
-# Corrección análisis bivariado
+# CorrecciÃ³n anÃ¡lisis bivariado
 # -------------------------------------------------------
 
 aggregate(gastos ~ tvp, mean,data = epf) %>% arrange(gastos)
 aggregate(gastos ~ ecivil, mean,data = epf) %>% arrange(gastos)
 
-levels(epf$tvp)     <- c("G1.h/nr/asc","G4.prop pagada","G5.prop pagándose", 
+levels(epf$tvp)     <- c("G1.h/nr/asc","G4.prop pagada","G5.prop pagÃ¡ndose", 
                          "G2.acc/ct","G1.h/nr/asc","G2.acc/ct",
                          "G3.lit/cf","G3.lit/cf","G1.h/nr/asc")  
 
@@ -338,7 +338,7 @@ epf$tvp    <- relevel(epf$tvp,"G1.h/nr/asc")
 
 
 # -------------------------------------------------------
-# Ajuste regresión lineal 
+# Ajuste regresiÃ³n lineal 
 # -------------------------------------------------------
 
 set.seed(12345)
@@ -372,7 +372,7 @@ R2.valid
 
 
 # -------------------------------------------------------
-# Gráfico de ajuste
+# GrÃ¡fico de ajuste
 # -------------------------------------------------------
 
 epf.train$forecast = forecast.train
